@@ -14,6 +14,11 @@ Thermostat.prototype.temperature = function(){
   return this._temperature
 };
 
+Thermostat.prototype.reset = function(){
+  this._temperature = 20
+  return this._temperature
+};
+
 Thermostat.prototype.powerSavingMode = function(){
   return this._mode
 };
@@ -38,10 +43,10 @@ Thermostat.prototype.down = function(degrees){
   };
 };
 
-  Thermostat.prototype.powerSavingModeSwitch = function(){
-    if (this._mode === "ON") {
-      return this._mode = "OFF"
-    } else {
-      return this._mode = "ON"
-    };
+Thermostat.prototype.powerSavingModeSwitch = function(){
+  if (this._mode === "ON") {
+    return this._mode = "OFF"
+  } else {
+    return this._mode = "ON"
   };
+};

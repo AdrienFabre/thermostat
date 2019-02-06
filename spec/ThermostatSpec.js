@@ -37,4 +37,10 @@ describe('Thermostat', function(){
     expect( function(){ thermostat.up(13) }).toThrow("Maximum Temperature Reached")
   });
 
+  it('can reset the temperature to 20 degrees', function(){
+    thermostat.down(4)
+    thermostat.reset()
+    expect(thermostat.temperature()).toEqual(20)
+  });
+
 });
