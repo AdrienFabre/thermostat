@@ -43,4 +43,18 @@ describe('Thermostat', function(){
     expect(thermostat.temperature()).toEqual(20)
   });
 
+  it("can ask the thermostat's current energy and return low usage when under 18", function(){
+    thermostat.down(4)
+    expect(thermostat.energyUsage()).toEqual("Low-usage")
+  });
+
+  it("can ask the thermostat's current energy and return low usage when 25 or under", function(){
+    expect(thermostat.energyUsage()).toEqual("Medium-usage")
+  });
+
+  it("can ask the thermostat's current energy and return low usage when over 25", function(){
+    thermostat.powerSavingModeSwitch()
+    thermostat.up(6)
+    expect(thermostat.energyUsage()).toEqual("High-usage")
+  });
 });
